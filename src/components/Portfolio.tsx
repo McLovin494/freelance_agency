@@ -62,10 +62,10 @@ export default function Portfolio() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-baseline justify-between border-b border-[#EAEAEA] pb-12 mb-16 sm:mb-24">
           <h2 className="font-heading text-3xl sm:text-4xl font-normal text-[#111111] tracking-tight">
-            Selected Work
+            Projects
           </h2>
           <p className="text-sm text-[#666666] font-light max-w-sm mt-4 md:mt-0">
-            A selection of platforms we have designed, engineered, and shipped for forward-thinking clients.
+            A selection of products we've designed, built, and shipped for startups and growing businesses.
           </p>
         </div>
 
@@ -82,13 +82,13 @@ export default function Portfolio() {
               >
                 {/* Project Image Panel */}
                 <div className="w-full lg:w-3/5 group">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
                     <Image
                       src={project.image}
                       alt={`${project.name} preview`}
                       fill
                       sizes="(max-w-768px) 100vw, 60vw"
-                      className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-500 hover:scale-[1.01]"
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                       priority={index === 0}
                     />
                   </div>
@@ -100,7 +100,10 @@ export default function Portfolio() {
                     {/* Header */}
                     <div>
                       <div className="flex items-center justify-between text-xs tracking-wider uppercase text-[#666666] mb-3">
-                        <span>{project.industry}</span>
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full shrink-0"></span>
+                          {project.industry}
+                        </span>
                         <span>{project.year}</span>
                       </div>
                       <h3 className="font-heading text-2xl sm:text-3xl font-light text-[#111111]">

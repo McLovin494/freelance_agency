@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface PhilosophyItem {
   title: string;
@@ -8,19 +9,19 @@ interface PhilosophyItem {
 const philosophy: PhilosophyItem[] = [
   {
     title: "Small Independent Team",
-    description: "We work as a small, specialized unit. This allows us to keep overhead low, maintain absolute quality control, and focus entirely on your project.",
+    description: "We work as a small, focused unit. Low overhead means better prices, faster turnarounds, and full attention on your project.",
   },
   {
     title: "Direct Communication",
-    description: "You talk directly to the engineers and designers building your website. No account managers, no delays, no details lost in translation.",
+    description: "You talk directly to the people building your product. No account managers, no delays, no details lost in translation.",
   },
   {
     title: "Fast Execution",
-    description: "We work in focused sprints to ship code quickly. By eliminating unnecessary administrative layers, we move from strategy to launch in weeks, not months.",
+    description: "We work in focused sprints to ship quickly. From strategy to launch in weeks, not months — without cutting corners on quality.",
   },
   {
     title: "Long-term Partnerships",
-    description: "We do not believe in hit-and-run projects. We support our clients post-launch, continually optimizing performance and scaling the code as their business grows.",
+    description: "We don't do hit-and-run projects. We support our clients post-launch, optimizing performance and scaling the codebase as the business grows.",
   },
 ];
 
@@ -29,20 +30,23 @@ interface Founder {
   role: string;
   bio: string;
   initials: string;
+  image?: string;
 }
 
 const founders: Founder[] = [
   {
-    name: "Alex Rivera",
-    role: "Engineering & Architecture",
-    bio: "Ex-software engineer at core web startups. Focuses on system architecture, database performance, and building robust Next.js systems.",
-    initials: "AR",
+    name: "Ayan Jyoti Bora",
+    role: "Technology & Product",
+    bio: "Builder, developer, and co-founder. Focused on engineering reliable web products, experimenting with new technologies, and bringing ambitious ideas to life.",
+    initials: "AJB",
+    image: "/AJB.png",
   },
   {
-    name: "Maya Chen",
-    role: "Design & Creative Direction",
-    bio: "Digital product designer with an editorial design background. Focuses on typography, interaction flows, and pixel-perfect implementation.",
-    initials: "MC",
+    name: "Arion Dutta",
+    role: "Design & Brand",
+    bio: "Designer and co-founder with a passion for crafting memorable digital experiences. Focuses on visual identity, product design, and thoughtful user interactions.",
+    initials: "ARD",
+    image: "/ARD.png",
   },
 ];
 
@@ -50,19 +54,19 @@ export default function About() {
   return (
     <section id="about" className="py-24 sm:py-32 bg-white border-t border-[#EAEAEA]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Editorial Layout: Title on Left, Main Text on Right */}
+        {/* Layout: Title on Left, Main Text on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 mb-20 sm:mb-28">
           <div className="lg:col-span-4">
             <h2 className="font-heading text-3xl sm:text-4xl font-normal text-[#111111] tracking-tight">
-              Behind the Studio
+              About Us
             </h2>
           </div>
           <div className="lg:col-span-8 space-y-6">
             <p className="text-xl sm:text-2xl text-[#111111] leading-relaxed font-light">
-              We started Aura Studio because we wanted to build a different kind of agency — one where craft, performance, and clean code are prioritized above empty corporate marketing.
+              We&apos;re two B.Tech graduates who started Aura Studio to build the kind of digital products we&apos;d want to use ourselves — fast, well-designed, and built with clean code.
             </p>
             <p className="text-sm sm:text-base text-[#666666] leading-relaxed font-light">
-              We are young developers and designers who grew up on the modern web. We understand how to create interfaces that feel responsive and alive, using robust engineering to back up every design choice. We don't use templates or shortcuts. Every line of code and pixel we deliver is handcrafted for your business.
+              We grew up on the modern web and understand how to create interfaces that feel responsive and alive. We use robust engineering to back up every design choice. No templates, no shortcuts — every line of code is written specifically for your project using tools like React, Next.js, and TypeScript.
             </p>
           </div>
         </div>
@@ -89,11 +93,20 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             {founders.map((founder) => (
               <div key={founder.name} className="flex flex-col sm:flex-row gap-6 items-start">
-                {/* Visual Placeholder Box for Photo */}
-                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-neutral-50 border border-[#EAEAEA] flex items-center justify-center shrink-0">
-                  <span className="font-heading text-xl font-light text-[#666666]">
-                    {founder.initials}
-                  </span>
+                {/* Initials / Image Box */}
+                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-neutral-50 border border-[#EAEAEA] flex items-center justify-center shrink-0 overflow-hidden relative">
+                  {founder.image ? (
+                    <Image
+                      src={founder.image}
+                      alt={founder.name}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="font-heading text-xl font-light text-[#666666]">
+                      {founder.initials}
+                    </span>
+                  )}
                 </div>
 
                 {/* Bio */}

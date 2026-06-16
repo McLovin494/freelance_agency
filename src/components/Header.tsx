@@ -10,7 +10,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -26,17 +26,26 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-md border-b border-[#EAEAEA] py-4" : "bg-white py-6"
+          scrolled ? "bg-white/75 backdrop-blur-[12px] border-b border-black/[0.06] py-3" : "bg-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="#"
-            className="font-heading text-lg font-bold tracking-tight text-[#111111] hover:opacity-80 transition-opacity"
-          >
-            AURA STUDIO
-          </Link>
+          {/* Logo & Availability */}
+          <div className="flex items-center space-x-3">
+            <Link
+              href="#"
+              className="font-heading text-lg font-bold tracking-tight text-[#111111] hover:opacity-80 transition-opacity"
+            >
+              AURA STUDIO
+            </Link>
+            <div className="hidden sm:flex items-center space-x-1.5 border border-[#EAEAEA] bg-neutral-50 px-2 py-0.5 text-[9px] font-semibold text-[#666666] tracking-wider uppercase">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981]/40 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#10B981]"></span>
+              </span>
+              <span>Available</span>
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

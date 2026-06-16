@@ -17,11 +17,11 @@ export default function Footer() {
               AURA STUDIO
             </Link>
             <p className="text-sm text-[#666666] font-light leading-relaxed max-w-sm">
-              An independent team of designers and engineers crafting premium digital solutions.
+              A small product studio building websites, apps, and digital tools for startups and growing businesses.
             </p>
             <div className="text-xs text-[#666666] space-y-1">
               <p>© {currentYear} Aura Studio. All rights reserved.</p>
-              <p>Designed & engineered with precision.</p>
+              <p>Built with Next.js, React & TypeScript.</p>
             </div>
           </div>
 

@@ -90,7 +90,7 @@ export default function ContactForm() {
                   Message received.
                 </h3>
                 <p className="text-sm text-[#666666] font-light leading-relaxed">
-                  Thank you for reaching out. Alex or Maya will review your project requirements and follow up via email shortly to set up an introductory call.
+                  Thank you for reaching out. We&apos;ll review your project and get back to you within 24 hours.
                 </p>
                 <Button
                   onClick={() => setStatus("idle")}
