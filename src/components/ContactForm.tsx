@@ -65,10 +65,10 @@ export default function ContactForm() {
                   Direct Email
                 </p>
                 <a
-                  href="mailto:hello@aurastudio.design"
+                  href="mailto:hello@blueprintstudio.design"
                   className="text-sm font-medium text-[#111111] hover:underline"
                 >
-                  hello@aurastudio.design
+                  hello@blueprintstudio.design
                 </a>
               </div>
               <div>

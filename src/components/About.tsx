@@ -63,7 +63,7 @@ export default function About() {
           </div>
           <div className="lg:col-span-8 space-y-6">
             <p className="text-xl sm:text-2xl text-[#111111] leading-relaxed font-light">
-              We&apos;re two B.Tech graduates who started Aura Studio to build the kind of digital products we&apos;d want to use ourselves — fast, well-designed, and built with clean code.
+              We&apos;re two B.Tech graduates who started Blueprint Studio to build the kind of digital products we&apos;d want to use ourselves — fast, well-designed, and built with clean code.
             </p>
             <p className="text-sm sm:text-base text-[#666666] leading-relaxed font-light">
               We grew up on the modern web and understand how to create interfaces that feel responsive and alive. We use robust engineering to back up every design choice. No templates, no shortcuts — every line of code is written specifically for your project using tools like React, Next.js, and TypeScript.

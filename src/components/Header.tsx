@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function Header() {
@@ -34,9 +35,17 @@ export default function Header() {
           <div className="flex items-center space-x-3">
             <Link
               href="#"
-              className="font-heading text-lg font-bold tracking-tight text-[#111111] hover:opacity-80 transition-opacity"
+              className="flex items-center space-x-2 font-heading text-lg font-bold tracking-tight text-[#111111] hover:opacity-80 transition-opacity"
             >
-              AURA STUDIO
+              <div className="relative w-6 h-6 shrink-0 rounded-md overflow-hidden">
+                <Image
+                  src="/Logo.png"
+                  alt="Blueprint Studio logo icon"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span>BLUEPRINT STUDIO</span>
             </Link>
             <div className="hidden sm:flex items-center space-x-1.5 border border-[#EAEAEA] bg-neutral-50 px-2 py-0.5 text-[9px] font-semibold text-[#666666] tracking-wider uppercase">
               <span className="relative flex h-1.5 w-1.5">

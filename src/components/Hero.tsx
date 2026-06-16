@@ -1,12 +1,28 @@
 import React from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import ParallaxBlueprint from "./ParallaxBlueprint";
 
 export default function Hero() {
   return (
-    <section className="relative pt-20 pb-4 sm:pt-20 sm:pb-6 lg:pt-24 lg:pb-6 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl space-y-4">
+    <section className="relative pt-20 pb-6 sm:pt-20 sm:pb-8 lg:pt-28 lg:pb-10 bg-white overflow-hidden">
+      {/*
+       * Parallax Blueprint — absolutely positioned, bleeds right.
+       * Narrower width + offset to keep it as a supporting visual.
+       */}
+      <div
+        className="hidden lg:block absolute top-0 bottom-0 pointer-events-none"
+        style={{
+          right: "6%",
+          width: "48%",
+        }}
+      >
+        <ParallaxBlueprint />
+      </div>
+
+      {/* Text Content */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-xl lg:max-w-lg xl:max-w-xl space-y-4">
           {/* Tagline */}
           <div className="inline-block border border-[#EAEAEA] px-3 py-1 bg-neutral-50">
             <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#111111] uppercase">
@@ -24,7 +40,7 @@ export default function Hero() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg text-[#666666] leading-relaxed max-w-2xl font-light">
+          <p className="text-base sm:text-lg text-[#666666] leading-relaxed max-w-lg font-light">
             We&apos;re a two-person dev studio that designs and builds websites, web apps,
             SaaS products, and mobile applications. No bloat, no middlemen — just
             clean code and thoughtful design, shipped fast.

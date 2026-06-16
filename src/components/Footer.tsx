@@ -14,13 +14,13 @@ export default function Footer() {
               href="#"
               className="font-heading text-lg font-bold tracking-tight text-[#111111] hover:opacity-80 transition-opacity"
             >
-              AURA STUDIO
+              BLUEPRINT STUDIO
             </Link>
             <p className="text-sm text-[#666666] font-light leading-relaxed max-w-sm">
               A small product studio building websites, apps, and digital tools for startups and growing businesses.
             </p>
             <div className="text-xs text-[#666666] space-y-1">
-              <p>© {currentYear} Aura Studio. All rights reserved.</p>
+              <p>© {currentYear} Blueprint Studio. All rights reserved.</p>
               <p>Built with Next.js, React & TypeScript.</p>
             </div>
           </div>
@@ -82,10 +82,10 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="mailto:hello@aurastudio.design"
+                  href="mailto:hello@blueprintstudio.design"
                   className="text-sm text-[#666666] hover:text-[#111111] transition-colors font-light"
                 >
-                  hello@aurastudio.design
+                  hello@blueprintstudio.design
                 </a>
               </li>
               <li>
