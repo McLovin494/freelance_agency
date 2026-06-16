@@ -13,19 +13,22 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Studio — Independent Digital Design & Engineering",
-  description: "A small team of developers and designers building fast, focused, and premium websites, digital platforms, and custom e-commerce solutions.",
-  authors: [{ name: "Aura Studio" }],
+  title: "Blueprint Studio — Websites, Apps & Digital Products",
+  description: "A small product studio building websites, web apps, SaaS products, dashboards, and mobile applications for startups, creators, and growing businesses.",
+  authors: [{ name: "Blueprint Studio" }],
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
-    title: "Aura Studio — Independent Digital Design & Engineering",
-    description: "A small team of developers and designers building fast, focused, and premium websites, digital platforms, and custom e-commerce solutions.",
+    title: "Blueprint Studio — Websites, Apps & Digital Products",
+    description: "A small product studio building websites, web apps, SaaS products, dashboards, and mobile applications for startups, creators, and growing businesses.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aura Studio — Independent Digital Design & Engineering",
-    description: "A small team of developers and designers building fast, focused, and premium websites, digital platforms, and custom e-commerce solutions.",
+    title: "Blueprint Studio — Websites, Apps & Digital Products",
+    description: "A small product studio building websites, web apps, SaaS products, dashboards, and mobile applications for startups, creators, and growing businesses.",
   },
 };
 
@@ -45,4 +48,3 @@ export default function RootLayout({
     </html>
   );
 }
-

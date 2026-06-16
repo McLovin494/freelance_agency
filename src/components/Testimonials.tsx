@@ -9,7 +9,7 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Working with Aura Studio was a refreshing experience. They wrote clean, understandable code, communicated daily in a private channel, and hit every milestone on time. Our conversion rate has more than doubled since the launch.",
+    quote: "Working with Blueprint Studio was a refreshing experience. They wrote clean, understandable code, communicated daily in a private channel, and hit every milestone on time. Our conversion rate has more than doubled since the launch.",
     author: "Elena Rostov",
     role: "VP of Product",
     company: "Kora Atelier",
@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     company: "Novus Capital",
   },
   {
-    quote: "Aura Studio rebuilt our legacy dashboard from scratch. The performance improvement was night and day. Page loads went from seconds to milliseconds, and our customer support requests dropped dramatically.",
+    quote: "Blueprint Studio rebuilt our legacy dashboard from scratch. The performance improvement was night and day. Page loads went from seconds to milliseconds, and our customer support requests dropped dramatically.",
     author: "David Vance",
     role: "Director of Operations",
     company: "Apex Logistics",

@@ -1,37 +1,53 @@
 import React from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import ParallaxBlueprint from "./ParallaxBlueprint";
 
 export default function Hero() {
   return (
-    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 lg:pt-52 lg:pb-36 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl space-y-8">
+    <section className="relative pt-20 pb-6 sm:pt-20 sm:pb-8 lg:pt-28 lg:pb-10 bg-white overflow-hidden">
+      {/*
+       * Parallax Blueprint — absolutely positioned, bleeds right.
+       * Narrower width + offset to keep it as a supporting visual.
+       */}
+      <div
+        className="hidden lg:block absolute top-0 bottom-0 pointer-events-none"
+        style={{
+          right: "6%",
+          width: "48%",
+        }}
+      >
+        <ParallaxBlueprint />
+      </div>
+
+      {/* Text Content */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-xl lg:max-w-lg xl:max-w-xl space-y-4">
           {/* Tagline */}
           <div className="inline-block border border-[#EAEAEA] px-3 py-1 bg-neutral-50">
             <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#111111] uppercase">
-              Independent Design & Engineering Studio
+              Web & App Development Studio
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.05] text-[#111111]">
-            We design and build
+          <h1 className="font-heading text-3xl sm:text-[52px] lg:text-[62px] font-normal tracking-tight leading-[1.05] text-[#111111]">
+            Websites, Apps &
             <br />
-            high-performance websites
+            Digital Products
             <br />
-            for growing businesses.
+            Built for Growth.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-[#666666] leading-relaxed max-w-2xl font-light">
-            We are a small, focused team of developers and designers. We build fast, reliable,
-            and custom-tailored digital products directly, avoiding bloated agency processes to
-            deliver exceptional design and robust engineering.
+          <p className="text-base sm:text-lg text-[#666666] leading-relaxed max-w-lg font-light">
+            We&apos;re a two-person dev studio that designs and builds websites, web apps,
+            SaaS products, and mobile applications. No bloat, no middlemen — just
+            clean code and thoughtful design, shipped fast.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="#contact"
               className={buttonVariants({
@@ -52,9 +68,9 @@ export default function Hero() {
           </div>
 
           {/* Trust Statement */}
-          <div className="pt-8 sm:pt-12 border-t border-[#EAEAEA]">
+          <div className="pt-3 sm:pt-4 border-t border-[#EAEAEA]">
             <p className="text-[11px] sm:text-xs tracking-wider uppercase text-[#666666]">
-              Trusted by tech startups, boutique ecommerce brands, and architectural firms.
+              Building for startups, creators, local businesses, and growing companies.
             </p>
           </div>
         </div>

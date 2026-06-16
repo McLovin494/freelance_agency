@@ -9,33 +9,33 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     number: "01",
-    name: "Web Design",
-    description: "Bespoke digital design. We construct scalable design systems, prioritize visual flow, and create responsive interfaces centered on clean typography and whitespace.",
+    name: "Websites & Landing Pages",
+    description: "Marketing sites, business websites, and high-conversion landing pages. Built with Next.js and optimized for speed, SEO, and mobile responsiveness.",
   },
   {
     number: "02",
-    name: "Custom Development",
-    description: "Production-ready frontends and robust systems. Built primarily with React 19, Next.js, and TypeScript, optimized for fast loading, security, and strict clean code.",
+    name: "Web Applications",
+    description: "SaaS platforms, dashboards, admin panels, and internal tools. Built with React, Next.js, and TypeScript for reliability and performance at scale.",
   },
   {
     number: "03",
-    name: "Landing Pages",
-    description: "Focused single-page user experiences designed to guide visitors toward key actions. Optimized for high speed, search visibility, and maximum conversion.",
+    name: "Mobile Applications",
+    description: "Cross-platform mobile apps for iOS and Android. We build native-feeling experiences using modern frameworks, integrated with your existing backend.",
   },
   {
     number: "04",
-    name: "Business Websites",
-    description: "Marketing websites that project professionalism and scale. We build clean digital hubs that help firms, agencies, and businesses establish absolute trust.",
+    name: "E-commerce",
+    description: "Online stores with Shopify, custom carts, and payment integrations. Headless setups, optimized checkout flows, and fast product pages that convert.",
   },
   {
     number: "05",
-    name: "E-commerce Solutions",
-    description: "High-performance online storefronts. Headless Shopify setups, custom search paths, integrated checkout flows, and database structures designed to convert.",
+    name: "UI/UX Design",
+    description: "Interface design, prototyping, and design systems. We focus on clean layouts, clear navigation, and interactions that make products easy and enjoyable to use.",
   },
   {
     number: "06",
     name: "Maintenance & Support",
-    description: "Ongoing updates, monitoring, hosting, and technical optimization to ensure your digital platform remains secure, error-free, and operational 24/7.",
+    description: "Ongoing updates, hosting, monitoring, and technical optimization. We keep your product secure, fast, and running smoothly after launch.",
   },
 ];
 
@@ -46,10 +46,10 @@ export default function Services() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-baseline justify-between border-b border-[#EAEAEA] pb-12 mb-16">
           <h2 className="font-heading text-3xl sm:text-4xl font-normal text-[#111111] tracking-tight">
-            Capabilities
+            What We Build
           </h2>
           <p className="text-sm text-[#666666] font-light max-w-sm mt-4 md:mt-0">
-            We operate at the intersection of aesthetic design and production-grade software engineering.
+            From landing pages to full-stack SaaS platforms — we handle design, development, and deployment.
           </p>
         </div>
 
