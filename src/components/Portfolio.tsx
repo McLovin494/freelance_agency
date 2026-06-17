@@ -11,6 +11,8 @@ interface CaseStudy {
   solution: string;
   outcome: string;
   year: string;
+  liveUrl?: string;
+  buttonText?: string;
 }
 
 const projects: CaseStudy[] = [
@@ -29,6 +31,8 @@ const projects: CaseStudy[] = [
       "Created a centralized system that helps job seekers make safer application decisions while streamlining resume-job matching through AI-assisted analysis.",
 
     year: "2026",
+    liveUrl: "https://jobshield69.vercel.app/",
+    buttonText: "Visit Live Site",
   },
 
   {
@@ -47,6 +51,8 @@ const projects: CaseStudy[] = [
       "Delivered a complete fitness companion that combines workout management, progress monitoring, and AI-assisted guidance within a single mobile experience.",
 
     year: "2026",
+    liveUrl: "https://github.com/Ayanjyoti2003/Gym-Tracker/releases/tag/v1.0.0",
+    buttonText: "View Releases",
   },
 
   {
@@ -64,6 +70,8 @@ const projects: CaseStudy[] = [
       "Enabled users to assess resume strength more effectively and gain structured feedback before applying for positions.",
 
     year: "2026",
+    liveUrl: "https://resume-analysis-rosy.vercel.app",
+    buttonText: "Visit Live Site",
   },
 ];
 
@@ -94,19 +102,20 @@ export default function Portfolio() {
                 {/* Project Image Panel */}
                 <div className="w-full lg:w-3/5 group">
                   {project.images && project.images.length > 1 ? (
-                    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                      <div className="absolute inset-0 flex gap-2 p-3">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-50 to-slate-100/80 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 flex items-center justify-center p-4">
+                      <div className="absolute inset-0 flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6">
                         {project.images.map((img, imgIndex) => (
                           <div
                             key={imgIndex}
-                            className="relative flex-1 overflow-hidden rounded-md"
+                            className="relative h-full aspect-[1/2] rounded-[18px] sm:rounded-[24px] border-[4px] sm:border-[5px] border-neutral-900 bg-neutral-950 shadow-lg overflow-hidden flex-1 max-w-[110px] sm:max-w-[145px] transition-transform duration-500 group-hover:scale-[1.03] group-hover:-translate-y-1"
+                            style={{ transitionDelay: `${imgIndex * 75}ms` }}
                           >
                             <Image
                               src={img}
                               alt={`${project.name} screen ${imgIndex + 1}`}
                               fill
-                              sizes="(max-width: 768px) 33vw, 20vw"
-                              className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.03]"
+                              sizes="(max-width: 768px) 30vw, 15vw"
+                              className="object-cover object-top"
                               priority={index === 0}
                             />
                           </div>
@@ -114,15 +123,29 @@ export default function Portfolio() {
                       </div>
                     </div>
                   ) : (
-                    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                      <Image
-                        src={project.image}
-                        alt={`${project.name} preview`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 60vw"
-                        className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
-                        priority={index === 0}
-                      />
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-50 to-slate-100/80 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 flex items-center justify-center p-4 sm:p-8">
+                      <div className="relative w-full h-full rounded-lg shadow-2xl border border-neutral-200/60 bg-white overflow-hidden flex flex-col transition-transform duration-500 group-hover:scale-[1.02]">
+                        {/* Browser Header Mockup */}
+                        <div className="h-6 sm:h-8 bg-neutral-50 border-b border-neutral-200/80 flex items-center px-3 sm:px-4 gap-1.5 shrink-0 select-none">
+                          <div className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5 rounded-full bg-[#FF5F56]"></div>
+                          <div className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5 rounded-full bg-[#FFBD2E]"></div>
+                          <div className="w-1.5 sm:w-2.5 h-1.5 sm:h-2.5 rounded-full bg-[#27C93F]"></div>
+                          <div className="mx-auto w-1/3 sm:w-1/2 h-3.5 sm:h-5 bg-white border border-neutral-200/60 rounded text-[8px] sm:text-[10px] text-[#888888] flex items-center justify-center font-mono truncate">
+                            {project.id}.agency
+                          </div>
+                        </div>
+                        {/* Browser Content */}
+                        <div className="relative flex-1 w-full bg-neutral-50 overflow-hidden">
+                          <Image
+                            src={project.image}
+                            alt={`${project.name} preview`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 60vw"
+                            className="object-cover object-top"
+                            priority={index === 0}
+                          />
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -173,6 +196,32 @@ export default function Portfolio() {
                         </p>
                       </div>
                     </div>
+
+                    {project.liveUrl && (
+                      <div className="pt-2">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center gap-2.5 rounded-none bg-[#111111] hover:bg-neutral-800 text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider px-5 py-3 transition-all cursor-pointer shadow-sm hover:shadow-md"
+                        >
+                          <span>{project.buttonText || "Visit Project"}</span>
+                          <svg
+                            className="w-3.5 h-3.5 transform transition-transform duration-300 group-hover:translate-x-0.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2.5}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
