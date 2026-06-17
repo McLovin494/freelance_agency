@@ -6,6 +6,7 @@ interface CaseStudy {
   name: string;
   industry: string;
   image: string;
+  images?: string[];
   challenge: string;
   solution: string;
   outcome: string;
@@ -14,43 +15,54 @@ interface CaseStudy {
 
 const projects: CaseStudy[] = [
   {
-    id: "apex",
-    name: "Apex Logistics",
-    industry: "Supply Chain & Operations",
-    image: "/images/apex_logistics.png",
-    challenge: "A legacy operations portal suffered from slow response times and failed to support agents managing shipments on mobile viewports.",
-    solution: "We designed and engineered a custom tracking and operations dashboard using Next.js, implementing real-time server-sent events and high-performance server actions.",
-    outcome: "Reduced internal ticket load times by 72% and lowered user support calls by 40% in the first quarter post-launch.",
-    year: "2025",
-  },
-  {
-    id: "kora",
-    name: "Kora Atelier",
-    industry: "Luxury Fashion & Retail",
-    image: "/images/kora_atelier.png",
-    challenge: "The brand's existing e-commerce template felt generic, loaded slowly, and struggled to reflect their bespoke clothing line.",
-    solution: "We developed a headless e-commerce experience using Shopify's Storefront API coupled with Next.js, featuring optimized assets and smooth page transitions.",
-    outcome: "Organic mobile conversion rate increased by 2.1x and page load times decreased from 3.2s to 400ms.",
+    id: "jobshield",
+    name: "AI Job Analysis System",
+    industry: "AI • Recruitment Technology",
+    image: "/images/job-analysis-system.png",
+    challenge:
+      "Job seekers frequently encounter fraudulent job postings, misleading recruitment offers, and difficulty identifying opportunities that genuinely match their skills and experience.",
+
+    solution:
+      "Developed an AI-powered platform that analyzes job listings for potential scam indicators, evaluates resume compatibility against job requirements, and provides intelligent matching insights. The platform combines job analysis, resume evaluation, community reporting, and analytics into a single workflow.",
+
+    outcome:
+      "Created a centralized system that helps job seekers make safer application decisions while streamlining resume-job matching through AI-assisted analysis.",
+
     year: "2026",
   },
+
   {
-    id: "novus",
-    name: "Novus Capital",
-    industry: "Venture Capital & Finance",
-    image: "/images/novus_capital.png",
-    challenge: "Prospective founders were overwhelmed by dense paragraphs, causing high bounce rates on the investment application portal.",
-    solution: "A typography-led brand refresh and landing page design that restructured deal pipeline workflows, featuring a high-contrast form and real-time validation.",
-    outcome: "A 35% increase in highly qualified pitch submissions with a complete reduction in incomplete applications.",
-    year: "2025",
+    id: "gymtracker",
+    name: "Gym Tracker",
+    industry: "Fitness • Mobile Application",
+    image: "/images/Dashboard.jpeg",
+    images: ["/images/Dashboard.jpeg", "/images/History.jpeg", "/images/Analytics.jpeg"],
+    challenge:
+      "Many fitness applications focus solely on workout logging while lacking personalized guidance, progress insights, and an integrated experience for users trying to maintain long-term consistency.",
+
+    solution:
+      "Built a cross-platform mobile fitness application using React Native and Expo. Features include workout tracking, progress analytics, AI-powered fitness assistance, user authentication, cloud synchronization, and personalized recommendations.",
+
+    outcome:
+      "Delivered a complete fitness companion that combines workout management, progress monitoring, and AI-assisted guidance within a single mobile experience.",
+
+    year: "2026",
   },
+
   {
-    id: "carbon",
-    name: "Studio Carbon",
-    industry: "Architecture & Design",
-    image: "/images/studio_carbon.png",
-    challenge: "An image-dense project archive loaded poorly, severely impacting SEO and mobile accessibility scoreboards.",
-    solution: "An asymmetrical portfolio layout utilizing highly optimized Next/Image assets, static path generation, and lazy-loading layouts.",
-    outcome: "Achieved a 100/100 performance score on Google Lighthouse, generating a 50% increase in inbound inquiries.",
+    id: "resumeanalyzer",
+    name: "Resume Analysis Platform",
+    industry: "Career Tools • AI",
+    image: "/images/resume-analysis.png",
+    challenge:
+      "Job applicants often struggle to understand how well their resumes align with job descriptions and which areas require improvement before submitting applications.",
+
+    solution:
+      "Engineered a web-based resume analysis platform capable of evaluating resumes against job requirements, identifying missing skills, generating compatibility insights, and providing actionable recommendations to improve application quality.",
+
+    outcome:
+      "Enabled users to assess resume strength more effectively and gain structured feedback before applying for positions.",
+
     year: "2026",
   },
 ];
@@ -76,22 +88,43 @@ export default function Portfolio() {
             return (
               <div
                 key={project.id}
-                className={`flex flex-col ${
-                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                } gap-12 lg:gap-20 items-start`}
+                className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } gap-12 lg:gap-20 items-start`}
               >
                 {/* Project Image Panel */}
                 <div className="w-full lg:w-3/5 group">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                    <Image
-                      src={project.image}
-                      alt={`${project.name} preview`}
-                      fill
-                      sizes="(max-w-768px) 100vw, 60vw"
-                      className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-                      priority={index === 0}
-                    />
-                  </div>
+                  {project.images && project.images.length > 1 ? (
+                    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                      <div className="absolute inset-0 flex gap-2 p-3">
+                        {project.images.map((img, imgIndex) => (
+                          <div
+                            key={imgIndex}
+                            className="relative flex-1 overflow-hidden rounded-md"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.name} screen ${imgIndex + 1}`}
+                              fill
+                              sizes="(max-width: 768px) 33vw, 20vw"
+                              className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.03]"
+                              priority={index === 0}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-50 border border-[#EAEAEA] transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                      <Image
+                        src={project.image}
+                        alt={`${project.name} preview`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 60vw"
+                        className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                        priority={index === 0}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Project Details Panel */}
