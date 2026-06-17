@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { sendEnquiry } from "@/app/actions";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function ContactForm() {
   });
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,18 +29,25 @@ export default function ContactForm() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.details) {
       setStatus("error");
+      setErrorMessage("Please fill out all required fields (*) correctly.");
       return;
     }
 
     setStatus("submitting");
+    setErrorMessage("");
 
-    // Simulate form submission to backend (API route or server action)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStatus("success");
-      setFormData({ name: "", email: "", company: "", details: "" });
-    } catch {
+      const result = await sendEnquiry(formData);
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", company: "", details: "" });
+      } else {
+        setStatus("error");
+        setErrorMessage(result.error || "Failed to send enquiry. Please try again.");
+      }
+    } catch (err: any) {
       setStatus("error");
+      setErrorMessage(err?.message || "An unexpected error occurred. Please try again.");
     }
   };
 
@@ -65,10 +74,10 @@ export default function ContactForm() {
                   Direct Email
                 </p>
                 <a
-                  href="mailto:hello@blueprintstudio.design"
+                  href="mailto:blueprintstudio.agency@gmail.com"
                   className="text-sm font-medium text-[#111111] hover:underline"
                 >
-                  hello@blueprintstudio.design
+                  blueprintstudio.agency@gmail.com
                 </a>
               </div>
               <div>
@@ -190,7 +199,7 @@ export default function ContactForm() {
                 {/* Error status notice */}
                 {status === "error" && (
                   <p className="text-xs text-red-500 font-medium">
-                    Please fill out all required fields (*) correctly.
+                    {errorMessage}
                   </p>
                 )}
 
