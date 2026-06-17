@@ -82,10 +82,10 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="mailto:hello@blueprintstudio.design"
+                  href="mailto:blueprintstudio.agency@gmail.com"
                   className="text-sm text-[#666666] hover:text-[#111111] transition-colors font-light"
                 >
-                  hello@blueprintstudio.design
+                  blueprintstudio.agency@gmail.com
                 </a>
               </li>
               <li>
